@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 34, 34, 34; // #222222
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 168 168 168; // #a8a8a8
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer utilities {
+  body {
+    text-wrap: balance;
+  }
+}
+
+main {
+  @apply fixed left-0 right-0 top-0 bottom-0 min-h-screen grid grid-cols-3 border-4 border-black;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+div {
+  @apply items-start justify-start gap-5 grid grid-cols-3 p-2 w-full h-full flex-1 text-4xl font-semibold uppercase overflow-hidden;
+  cursor: pointer;
+  /* box-shadow: -2px -2px #e0dede, -2px 0 #e0dede, 0 -2px #e0dede, -4px -4px white,
+    -4px 0 white, 0 -4px white, 2px 2px #818181, 0 2px #818181, 2px 0 #818181,
+    2px -2px #e0dede, -2px 2px #818181, -4px 2px white, -4px 4px black,
+    4px 4px black, 4px 0 black, 0 4px black, 2px -4px white, 4px -4px black; */
+}
+
+// borders
+.border-t {
+  @apply border-t-4 border-t-black;
+}
+
+.border-l {
+  @apply border-l-[3px] border-l-white;
+}
+
+.border-r {
+  @apply border-r-4 border-r-black;
+}
+
+.border-b {
+  @apply border-b-[3px] border-b-white;
+}
+
+div:active {
+  @apply transform scale-95 bg-black/10;
+  box-shadow: -2px -2px #818181, -2px 0 #818181, 0 -2px #818181, -4px -4px black,
+    -4px 0 black, 0 -4px black, 2px 2px #e0dede, 0 2px #e0dede, 2px 0 #e0dede,
+    2px -2px #818181, -2px 2px #e0dede, -4px 2px black, -4px 4px white,
+    4px 4px white, 4px 0 white, 0 4px white, 2px -4px black, 4px -4px white !important;
+}
+
+div:hover {
+  box-shadow: -1px -1px #818181, -1px 0 #818181, 0 -1px #818181, -2px -2px black,
+    -2px 0 black, 0 -2px black, 1px 1px #e0dede, 0 1px #e0dede, 1px 0 #e0dede,
+    1px -1px #818181, -1px 1px #e0dede, -2px 1px black, -2px 2px white,
+    2px 2px white, 2px 0 white, 0 2px white, 1px -2px black, 2px -2px white;
+}
